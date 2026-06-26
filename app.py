@@ -145,7 +145,8 @@ hr { border: none; border-top: 1.5px solid #E2E8F0; margin: 20px 0; }
 # ══════════════════════════════════════════════════════════════
 @st.cache_resource
 def load_artifacts():
-    return joblib.load('model.pkl')
+   with open('model.pkl', 'rb') as f:
+    return pickle.load(f)
 
 artifacts = load_artifacts()
 
